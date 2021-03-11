@@ -5,26 +5,26 @@
 		"Lithium": "planned"
 	},
 	"Websites / Webservices": {
-		"Dysnomia": "up",
-		"Dehash.me": "up",
-		"Galactae - Website": "up",
-		"Galactae - Dev Client": "up",
-		"Galactae - Dev Server": "up",
-		"Galactae - Milkyway Client": "up",
-		"Galactae - Milkyway Server": "up",
+		"Dysnomia": "down",
+		"Dehash.me": "down",
+		"Galactae - Website": "down",
+		"Galactae - Dev Client": "down",
+		"Galactae - Dev Server": "down",
+		"Galactae - Milkyway Client": "down",
+		"Galactae - Milkyway Server": "down",
 		"Galactae - Pegasus Client": "down",
 		"Galactae - Pegasus Server": "down"
 	},
 	"CDN": {
-		"01 - Elanis": "up",
+		"01 - Elanis": "down",
 		"02 - Elanis": "decommissioned",
-		"03 - Elanis / Galactae": "up",
+		"03 - Elanis / Galactae": "down",
 		"Dysnomia": "planned"
 	},
 	"Services": {
-		"Bug Tracker": "up",
-		"Database": "up",
-		"Mail": "up",
-		"Reverse Proxy": "up"
+		"Bug Tracker": "down",
+		"Database": "down",
+		"Mail": "down",
+		"Reverse Proxy": "down"
 	}
 }

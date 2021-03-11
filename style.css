@@ -1,0 +1,45 @@
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font: 1.3em "Open Sans", sans-serif;
+	background: #2d3436;
+	color: white;
+}
+
+#main {
+	width: 100%;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+#main h1 {
+	text-align: center;
+}
+
+details {
+	margin: 1.5em 0;
+}
+
+details div {
+	display: inline-block;
+	margin: 0.2em 1em;
+}
+
+.service-up span:first-child {
+	color: #44bd32;
+}
+
+.service-down span:first-child {
+	color: #d63031;
+}
+
+.service-planned span:first-child {
+	color: #00a8ff;
+}
+
+.service-decommissioned span:first-child {
+	color: #f39c12;
+}

@@ -2,7 +2,7 @@
 	"Nodes": {
 		"Hydrogen": "decommissioned",
 		"Helium": "up",
-		"Lithium": "planned",
+		"Lithium": "planned"
 	},
 	"Websites / Webservices": {
 		"Dysnomia": "up",
@@ -19,7 +19,7 @@
 		"01 - Elanis": "up",
 		"02 - Elanis": "decommissioned",
 		"03 - Elanis / Galactae": "up",
-		"Dysnomia": "planned",
+		"Dysnomia": "planned"
 	},
 	"Services": {
 		"Bug Tracker": "up",

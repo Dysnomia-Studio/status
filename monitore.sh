@@ -114,6 +114,8 @@ for node in "${!Nodes[@]}"
         fi
 done
 
+cd "$SCRIPT_DIR"
+
 git add status.json
 git commit -m "Automatic monitoring update - $(date)";
 git push -u origin master

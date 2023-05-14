@@ -113,3 +113,7 @@ for node in "${!Nodes[@]}"
                 setStatus "${Nodes[$node]}" "up"
         fi
 done
+
+git add status.json
+git commit -m "Automatic monitoring update - $(date)";
+git push -u origin master

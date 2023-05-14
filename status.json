@@ -1,1 +1,27 @@
-{"Nodes":{"Hydrogen":"decommissioned","Helium":"down","Lithium":"down","Beryllium":"down"},"Websites / Webservices":{"Achieve.games":"down","Alchemistry Leaderboard":"down","Dysnomia":"down","Dehash.me":"down","Galactae - Website":"down","Galactae - Dev Client":"down","Galactae - Dev Server":"down","Galactae - Milkyway Client":"down","Galactae - Milkyway Server":"down","Galactae - Pegasus Client":"down","Galactae - Pegasus Server":"down","Downstat.us":"down"},"CDN":{"01 - Elanis":"down","02 - Elanis":"decommissioned","03 - Elanis / Galactae":"down","Dysnomia":"planned"},"Services":{"Bug Tracker":"down","Database":"down","Mail":"down","Reverse Proxy":"down"}}
+{
+    "Nodes": {
+        "Hydrogen": "decommissioned",
+        "Helium": "down",
+        "Lithium": "down",
+        "Beryllium": "down"
+    },
+    "Websites / Webservices": {
+        "Achieve.games": "down",
+        "Alchemistry Leaderboard": "down",
+        "Dysnomia": "down",
+        "Dehash.me": "down",
+        "Galactae - Website": "down",
+        "Galactae - Dev Client": "down",
+        "Galactae - Dev Server": "down",
+        "Galactae - Milkyway Client": "down",
+        "Galactae - Milkyway Server": "down",
+        "Downstat.us": "down"
+    },
+    "CDN": {
+        "Elanis": "down",
+        "Galactae": "down"
+    },
+    "Services": {
+        "Bug Tracker": "down"
+    }
+}

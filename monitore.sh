@@ -57,11 +57,11 @@ Nodes["https://beryllium.dysnomia.studio"]='."Nodes"."Beryllium"'
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 check_website () {
-    curl --user-agent "Dysnomia-monitoring" -s -o /dev/null -w "%{http_code}" $1
+    curl --dns-servers dns.opendns.com --user-agent "Dysnomia-monitoring" -s -o /dev/null -w "%{http_code}" $1
 }
 
 check_website_insecure () {
-    curl --insecure --user-agent "Dysnomia-monitoring" -s -o /dev/null -w "%{http_code}" $1
+    curl --dns-servers dns.opendns.com --insecure --user-agent "Dysnomia-monitoring" -s -o /dev/null -w "%{http_code}" $1
 }
 
 setStatus () {

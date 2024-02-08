@@ -20,9 +20,6 @@ ServicesWithOkCode["https://alchemistry-leaderboard.dysnomia.studio/leaderboard/
 # Dehash.me
 ServicesWithOkCode["https://dehash.me"]='."Websites / Webservices"."Dehash.me"'
 
-# Downstat.us
-ServicesWithOkCode["https://downstat.us"]='."Websites / Webservices"."Downstat.us"'
-
 # Dysnomia
 ServicesWithOkCode["https://dysnomia.studio"]='."Websites / Webservices"."Dysnomia"'
 

@@ -70,8 +70,6 @@ setStatus () {
     jq -c "$1 = \"$2\"" "$SCRIPT_DIR/status.json" > tmp.status.json && mv tmp.status.json "$SCRIPT_DIR/status.json"
 }
 
-check_website "$STATUS_WEBSITE"
-
 if [ $(check_website "$STATUS_WEBSITE") != "200" ]; then
 	echo "Error: Cannot reach internet !";
 	exit -1;
@@ -81,8 +79,6 @@ for service in "${!ServicesWithOkCode[@]}"
 	do
 
 	echo "Checking $service ..."
-
-	check_website "$service"
 
 	if [ $(check_website "$service") != "200" ]; then
 		echo "$service not ok !";

@@ -56,18 +56,21 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 check_website () {
     domainName=$(basename $1)
     ip=$(dig +short $domainName @208.67.222.222 | tail -n 1)
-    curl --resolve $domainName:$ip --user-agent "Dysnomia-monitoring" -s -o /dev/null -w "%{http_code}" $1
+
+    curl --resolve "$domainName:443:$ip" --user-agent "Dysnomia-monitoring" -s -o /dev/null -w "%{http_code}" $1
 }
 
 check_website_insecure () {
     domainName=$(basename $1)
     ip=$(dig +short $domainName @208.67.222.222 | tail -n 1)
-    curl --resolve $domainName:$ip --insecure --user-agent "Dysnomia-monitoring" -s -o /dev/null -w "%{http_code}" $1
+    curl --resolve "$domainName:443:$ip" --insecure --user-agent "Dysnomia-monitoring" -s -o /dev/null -w "%{http_code}" $1
 }
 
 setStatus () {
     jq -c "$1 = \"$2\"" "$SCRIPT_DIR/status.json" > tmp.status.json && mv tmp.status.json "$SCRIPT_DIR/status.json"
 }
+
+check_website "$STATUS_WEBSITE"
 
 if [ $(check_website "$STATUS_WEBSITE") != "200" ]; then
 	echo "Error: Cannot reach internet !";

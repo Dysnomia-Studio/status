@@ -54,14 +54,14 @@ Nodes["https://beryllium.dysnomia.studio"]='."Nodes"."Beryllium"'
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 check_website () {
-    domainName=$(basename $1)
+    domainName=$(echo $1 | awk -F[/:] '{print $4}')
     ip=$(dig +short $domainName @208.67.222.222 | tail -n 1)
 
     curl --resolve "$domainName:443:$ip" --user-agent "Dysnomia-monitoring" -s -o /dev/null -w "%{http_code}" $1
 }
 
 check_website_insecure () {
-    domainName=$(basename $1)
+    domainName=$(echo $1 | awk -F[/:] '{print $4}')
     ip=$(dig +short $domainName @208.67.222.222 | tail -n 1)
     curl --resolve "$domainName:443:$ip" --insecure --user-agent "Dysnomia-monitoring" -s -o /dev/null -w "%{http_code}" $1
 }
@@ -81,6 +81,8 @@ for service in "${!ServicesWithOkCode[@]}"
 	do
 
 	echo "Checking $service ..."
+
+	check_website "$service"
 
 	if [ $(check_website "$service") != "200" ]; then
 		echo "$service not ok !";

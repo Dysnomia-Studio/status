@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+. "$DIR/custom-setup.sh"
+
 STATUS_WEBSITE="https://status.dysnomia.studio"
 
 # ==========================
@@ -55,14 +58,14 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 check_website () {
     domainName=$(echo $1 | awk -F[/:] '{print $4}')
-    ip=$(dig +short $domainName @208.67.222.222 | tail -n 1)
+    ip=$(dig +short $domainName @1.1.1.1 | tail -n 1)
 
     curl --resolve "$domainName:443:$ip" --user-agent "Dysnomia-monitoring" -s -o /dev/null -w "%{http_code}" $1
 }
 
 check_website_insecure () {
     domainName=$(echo $1 | awk -F[/:] '{print $4}')
-    ip=$(dig +short $domainName @208.67.222.222 | tail -n 1)
+    ip=$(dig +short $domainName @1.1.1.1 | tail -n 1)
     curl --resolve "$domainName:443:$ip" --insecure --user-agent "Dysnomia-monitoring" -s -o /dev/null -w "%{http_code}" $1
 }
 

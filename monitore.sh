@@ -46,7 +46,7 @@ ServicesWithOkCode["https://bugs.dysnomia.studio"]='."Services"."Bug Tracker"'
 
 ### Nodes
 declare -A Nodes
-Nodes["https://helium.dysnomia.studio"]='."Nodes"."Helium"'
+#Nodes["https://helium.dysnomia.studio"]='."Nodes"."Helium"'
 Nodes["https://lithium.dysnomia.studio"]='."Nodes"."Lithium"'
 Nodes["https://beryllium.dysnomia.studio"]='."Nodes"."Beryllium"'
 

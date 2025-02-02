@@ -46,10 +46,6 @@ ServicesWithOkCode["https://bugs.dysnomia.studio"]='."Services"."Bug Tracker"'
 
 ### Nodes
 declare -A Nodes
-Nodes["https://helium.dysnomia.studio"]='."Nodes"."Helium"'
-Nodes["https://lithium.dysnomia.studio"]='."Nodes"."Lithium"'
-Nodes["https://beryllium.dysnomia.studio"]='."Nodes"."Beryllium"'
-Nodes["https://bore.dysnomia.studio"]='."Nodes"."Bore"'
 Nodes["https://carbon.dysnomia.studio"]='."Nodes"."Carbon"'
 Nodes["https://nitrogen.dysnomia.studio"]='."Nodes"."Nitrogen"'
 Nodes["https://oxygen.dysnomia.studio"]='."Nodes"."Oxygen"'

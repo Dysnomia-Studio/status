@@ -24,7 +24,7 @@ ServicesWithOkCode["https://dehash.me"]='."Websites / Webservices"."Dehash.me"'
 
 # Dysnomia
 ServicesWithOkCode["https://dysnomia.studio"]='."Websites / Webservices"."Dysnomia"'
-ServicesWithOkCode["https://wiki.dysnomia.studio"]='."Websites / Webservices"."Dysnomia''s Wiki"'
+ServicesWithOkCode["https://wiki.dysnomia.studio"]='."Websites / Webservices"."Dysnomia’s Wiki"'
 
 # Galactae
 ServicesWithOkCode["https://galactae.eu"]='."Websites / Webservices"."Galactae - Website"'
@@ -42,8 +42,8 @@ ServicesWithOkCode["https://01.cdn.elanis.eu/portfolio/img/Elanis.png"]='."CDN".
 ServicesWithOkCode["https://cdn.galactae.eu"]='."CDN"."Galactae"'
 
 ### Manufactur'inc
-ServicesWebsocket["https://ptb.manufacturinc.dysnomia.studio"]='."Websites / Webservices"."Manufactur''inc PTB Game servers"'
-ServicesWebsocket["https://prd.manufacturinc.dysnomia.studio"]='."Websites / Webservices"."Manufactur''inc Game servers"'
+ServicesWebsocket["https://ptb.manufacturinc.dysnomia.studio"]='."Websites / Webservices"."Manufactur’Inc PTB Game servers"'
+ServicesWebsocket["https://prd.manufacturinc.dysnomia.studio"]='."Websites / Webservices"."Manufactur’Inc Game servers"'
 
 ### Services
 ServicesWithOkCode["https://bugs.dysnomia.studio"]='."Services"."Bug Tracker"'

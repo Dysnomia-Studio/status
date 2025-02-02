@@ -64,13 +64,13 @@ check_website () {
     domainName=$(echo $1 | awk -F[/:] '{print $4}')
     ip=$(dig +short $domainName @1.1.1.1 | tail -n 1)
 
-    curl --max-time 5 --resolve "$domainName:443:$ip" --user-agent "Dysnomia-monitoring" -s -o /dev/null -w "%{http_code}" $1
+    curl --max-time 60 --resolve "$domainName:443:$ip" --user-agent "Dysnomia-monitoring" -s -o /dev/null -w "%{http_code}" $1
 }
 
 check_website_insecure () {
     domainName=$(echo $1 | awk -F[/:] '{print $4}')
     ip=$(dig +short $domainName @1.1.1.1 | tail -n 1)
-    curl --max-time 5 --resolve "$domainName:443:$ip" --insecure --user-agent "Dysnomia-monitoring" -s -o /dev/null -w "%{http_code}" $1
+    curl --max-time 60 --resolve "$domainName:443:$ip" --insecure --user-agent "Dysnomia-monitoring" -s -o /dev/null -w "%{http_code}" $1
 }
 
 setStatus () {

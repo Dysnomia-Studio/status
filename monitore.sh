@@ -2,7 +2,6 @@
 set -euo pipefail
 
 DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
-. "$DIR/custom-setup.sh"
 
 STATUS_WEBSITE="https://status.dysnomia.studio"
 
@@ -121,6 +120,10 @@ done
 
 cd "$SCRIPT_DIR"
 
-git add status.json
-git commit -m "Automatic monitoring update - $(date)";
-git push -u origin master
+
+if [[ `git status --porcelain` ]]; then
+	. "$DIR/custom-setup.sh"
+	git add status.json
+	git commit -m "Automatic monitoring update - $(date)";
+	git push -u origin master
+fi

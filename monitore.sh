@@ -9,7 +9,7 @@ STATUS_WEBSITE="https://status.dysnomia.studio"
 # Services list
 # ==========================
 declare -A ServicesWithOkCode;
-declare -A ServicesWithNotFoundCode;
+declare -A ServicesWebsocket;
 
 ### Websites/Webservices
 
@@ -24,6 +24,7 @@ ServicesWithOkCode["https://dehash.me"]='."Websites / Webservices"."Dehash.me"'
 
 # Dysnomia
 ServicesWithOkCode["https://dysnomia.studio"]='."Websites / Webservices"."Dysnomia"'
+ServicesWithOkCode["https://wiki.dysnomia.studio"]='."Websites / Webservices"."Dysnomia''s Wiki"'
 
 # Galactae
 ServicesWithOkCode["https://galactae.eu"]='."Websites / Webservices"."Galactae - Website"'
@@ -31,14 +32,18 @@ ServicesWithOkCode["https://galactae.com"]='."Websites / Webservices"."Galactae 
 ServicesWithOkCode["https://galactae.space"]='."Websites / Webservices"."Galactae - Website"'
 
 ServicesWithOkCode["https://00-dev.galactae.eu"]='."Websites / Webservices"."Galactae - Dev Client"'
-ServicesWithNotFoundCode["https://00-srv.galactae.eu"]='."Websites / Webservices"."Galactae - Dev Server"'
+ServicesWebsocket["https://00-srv.galactae.eu"]='."Websites / Webservices"."Galactae - Dev Server"'
 
 ServicesWithOkCode["https://01-milkyway.galactae.eu"]='."Websites / Webservices"."Galactae - Milkyway Client"'
-ServicesWithNotFoundCode["https://01-srv.galactae.eu"]='."Websites / Webservices"."Galactae - Milkyway Server"'
+ServicesWebsocket["https://01-srv.galactae.eu"]='."Websites / Webservices"."Galactae - Milkyway Server"'
 
 ### CDN
 ServicesWithOkCode["https://01.cdn.elanis.eu/portfolio/img/Elanis.png"]='."CDN"."Elanis"'
 ServicesWithOkCode["https://cdn.galactae.eu"]='."CDN"."Galactae"'
+
+### Manufactur'inc
+ServicesWebsocket["https://ptb.manufacturinc.dysnomia.studio"]='."Websites / Webservices"."Manufactur''inc PTB Game servers"'
+ServicesWebsocket["https://prd.manufacturinc.dysnomia.studio"]='."Websites / Webservices"."Manufactur''inc Game servers"'
 
 ### Services
 ServicesWithOkCode["https://bugs.dysnomia.studio"]='."Services"."Bug Tracker"'
@@ -59,13 +64,13 @@ check_website () {
     domainName=$(echo $1 | awk -F[/:] '{print $4}')
     ip=$(dig +short $domainName @1.1.1.1 | tail -n 1)
 
-    curl --resolve "$domainName:443:$ip" --user-agent "Dysnomia-monitoring" -s -o /dev/null -w "%{http_code}" $1
+    curl --max-time 5 --resolve "$domainName:443:$ip" --user-agent "Dysnomia-monitoring" -s -o /dev/null -w "%{http_code}" $1
 }
 
 check_website_insecure () {
     domainName=$(echo $1 | awk -F[/:] '{print $4}')
     ip=$(dig +short $domainName @1.1.1.1 | tail -n 1)
-    curl --resolve "$domainName:443:$ip" --insecure --user-agent "Dysnomia-monitoring" -s -o /dev/null -w "%{http_code}" $1
+    curl --max-time 5 --resolve "$domainName:443:$ip" --insecure --user-agent "Dysnomia-monitoring" -s -o /dev/null -w "%{http_code}" $1
 }
 
 setStatus () {
@@ -90,16 +95,16 @@ for service in "${!ServicesWithOkCode[@]}"
 	fi
 done
 
-for service in "${!ServicesWithNotFoundCode[@]}"
+for service in "${!ServicesWebsocket[@]}"
         do
 
         echo "Checking $service ..."
 
-        if [ $(check_website "$service") != "404" ]; then
+        if [ $(check_website "$service/socket.io/") != "400" ]; then
                 echo "$service not ok !";
-                setStatus "${ServicesWithNotFoundCode[$service]}" "down"
+                setStatus "${ServicesWebsocket[$service]}" "down"
         else
-                setStatus "${ServicesWithNotFoundCode[$service]}" "up"
+                setStatus "${ServicesWebsocket[$service]}" "up"
         fi
 done
 

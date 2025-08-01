@@ -23,6 +23,7 @@ ServicesWithOkCode["https://alchemistry-leaderboard.dysnomia.studio/leaderboard/
 ServicesWithOkCode["https://dehash.me"]='."Websites / Webservices"."Dehash.me"'
 
 # Dysnomia
+ServicesWithOkCode["https://blog.dysnomia.studio"]='."Websites / Webservices"."Dysnomia’s Blog"'
 ServicesWithOkCode["https://dysnomia.studio"]='."Websites / Webservices"."Dysnomia"'
 ServicesWithOkCode["https://wiki.dysnomia.studio"]='."Websites / Webservices"."Dysnomia’s Wiki"'
 

@@ -13,9 +13,6 @@ declare -A ServicesWebsocket;
 
 ### Websites/Webservices
 
-# Achieve.games
-ServicesWithOkCode["https://achieve.games"]='."Websites / Webservices"."Achieve.games"'
-
 # Leaderboard
 ServicesWithOkCode["https://leaderboard.dysnomia.studio/alchemistry/game"]='."Websites / Webservices"."Leaderboard"'
 
